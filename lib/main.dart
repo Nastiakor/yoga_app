@@ -48,14 +48,14 @@ class _MyHomePageState extends State<MyHomePage> {
         onPageFinished: (String url) {},
         onWebResourceError: (WebResourceError error) {},
         onNavigationRequest: (NavigationRequest request) {
-          if (request.url.startsWith("https://player.vimeo.com/video/846252187?h=677c94156a")) {
+          if (request.url.startsWith('https://youtube.com')) {
             return NavigationDecision.prevent;
           }
           return NavigationDecision.navigate;
         },
       ),
     )
-    ..loadRequest(Uri.parse('https://flutter.dev'));
+    ..loadRequest(Uri.parse('https://player.vimeo.com/video/846252187?h=677c94156a'));
 
   @override
   void initState() {
@@ -82,7 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Column(
                         children: [
                           Text(snapshot.data![index].name),
-                          WebViewWidget(controller: controller),
+                          Container(
+                            height: 200, // Ajustez la hauteur selon vos besoins
+                            child: WebViewWidget(controller: controller),
+                          ),
                           Text(snapshot.data![index].duration.toString()),
                         ],
                       ),
