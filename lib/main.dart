@@ -83,7 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           Text(snapshot.data![index].name),
                           Container(
-                            height: 200, // Ajustez la hauteur selon vos besoins
+                            height: 300, // Ajustez la hauteur selon vos besoins
+                            width: double.infinity,
                             child: WebViewWidget(controller: controller),
                           ),
                           Text(snapshot.data![index].duration.toString()),
